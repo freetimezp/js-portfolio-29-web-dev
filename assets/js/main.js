@@ -63,6 +63,33 @@ backProfileBtn.onclick = () => {
     });
 }
 
+//opening animation 
+const coverRight = document.querySelector('.cover.cover-right');
+const pageLeft = document.querySelector('.book-page.page-left');
+
+setTimeout(() => {
+    coverRight.classList.add('turn');
+}, 2700);
+
+setTimeout(() => {
+    coverRight.style.zIndex = -1;
+}, 3200);
+
+setTimeout(() => {
+    pageLeft.style.zIndex = 20;
+}, 3600);
+
+pages.forEach((_, index) => {
+    setTimeout(() => {
+        reverseIndex();
+        pages[pageNumber].classList.remove('turn');
+        setTimeout(() => {
+            reverseIndex();
+            pages[pageNumber].style.zIndex = 10 + index;
+        }, 500);
+    }, (index + 1) * 200 + 2700);
+});
+
 
 
 
